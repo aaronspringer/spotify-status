@@ -1,0 +1,29 @@
+{
+  "name": "spotify-status",
+  "version": "1.0.0",
+  "description": "This project is a website that lets people show what music they are currently listening to on Spotify and also lets their friends send them song recommendations. It works kind of like the Spotify status you see on Discord, where it shows the song someone is listening to, but this website expands that idea into a small social platform. Instead of the status only showing inside Discord, anyone can visit a user’s page on the site to see what they’re listening to. The main goal is to create a fun place for people to share music with friends in an easy and visual way.",
+  "homepage": "https://github.com/aaronspringer/spotify-status#readme",
+  "bugs": {
+    "url": "https://github.com/aaronspringer/spotify-status/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronspringer/spotify-status.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "better-sqlite3": "^11.10.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0"
+  }
+}

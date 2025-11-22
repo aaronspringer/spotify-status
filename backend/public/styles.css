@@ -1,0 +1,39 @@
+body {
+  font-family: system-ui, "Segoe UI", sans-serif;
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 16px;
+  background-color: #b8b8b8;
+}
+
+button {
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+#track {
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+#track img {
+  max-width: 200px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+code {
+  background: #f3f3f3;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+#view-mode {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+}
