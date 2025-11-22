@@ -1,5 +1,19 @@
 # CS408 Final Project
 
+## Running the Project
+
+This project uses node packages for the backend, and I have provided a simple docker-compose file to get everything up and running very quick.
+
+In a terminal with docker installed, open the top level directory of this project that the output of `ls` looks something like this:
+
+```backend  docker-compose.yml  readme.md  spotify-wireframe.png```
+
+Then run
+
+```docker compose up --build```
+
+This will install all the required node packages and provide the link `https://localhost:8888` to open the website in your browser.
+
 ## Spotify Status Project Spec
 
 This project is a website that lets people show what music they are currently listening to on Spotify and also lets their friends send them song recommendations. It works kind of like the Spotify status you see on Discord, where it shows the song someone is listening to, but this website expands that idea into a small social platform. Instead of the status only showing inside Discord, anyone can visit a user’s page on the site to see what they’re listening to. The main goal is to create a fun place for people to share music with friends in an easy and visual way.
