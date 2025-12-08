@@ -293,6 +293,8 @@ app.get("/api/user/:username/now-playing", async (req, res) => {
       artists: item.artists.map((a) => a.name),
       album: item.album.name,
       albumArt: item.album.images[0]?.url,
+      trackUrl: item.external_urls.spotify,
+      explicit: item.explicit,
     });
   } catch (err) {
     console.error(
@@ -305,7 +307,11 @@ app.get("/api/user/:username/now-playing", async (req, res) => {
 
 // Public profile for already authed users
 app.get("/user/:username", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "public", "profile.html"));
+});
+
+app.get("/errors/usernotfound", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "errors", "usernotfound.html"));
 });
 
 // Start server

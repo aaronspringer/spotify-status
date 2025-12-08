@@ -4,24 +4,26 @@
     <meta charset="UTF-8" />
     <title>Spotify Now Playing</title>
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/landing.css"/>
   </head>
 
   <body>
-    <h1 id="title">Spotify Now Playing</h1>
-    <div id="view-mode"></div>
-    <p id="instructions"></p>
+    <h1>Spotify Now Playing</h1>
+    <div id="view-mode">Landing page</div>
+
+    <p id="instructions">
+      This site lets you share what you're listening to on Spotify.
+      <br /><br />
+      <strong>How it works:</strong><br />
+      1. Click <strong>Log in with Spotify</strong> below.<br />
+      2. We'll create a personal page for you at
+      <code>/user/&lt;your-username&gt;</code>.<br />
+      3. Anyone with that link can see what you're currently listening to.
+    </p>
 
     <div>
-      <button id="login">Log in with Spotify</button>
-      <button id="refresh">Refresh Now Playing</button>
+      <button id="login">Set Up</button>
     </div>
-
-    <div id="status" style="margin-top: 16px; font-size: 14px; color: #555">
-      <!-- JS -->
-    </div>
-
-    <div id="track"></div>
-
-    <script src="/main.js"></script>
+    <script src="landing.js"></script>
   </body>
 </html>

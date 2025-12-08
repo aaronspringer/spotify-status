@@ -9,6 +9,8 @@ services:
       - .env
     ports:
       - "8888:8888"
+    volumes:
+      - ./backend/public:/usr/src/app/public
     restart: unless-stopped
     dns:
       - 8.8.8.8
