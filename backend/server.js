@@ -315,7 +315,7 @@ app.get("/errors/usernotfound", (req, res) => {
 });
 
 // Start server
-const PORT = process.env.PORT || 8888;
+const PORT = process.env.PORT || 8802;
 app.listen(PORT, () => {
   console.log(`Backend + frontend listening on http://localhost:${PORT}`);
   console.log(`Login URL:     http://localhost:${PORT}/login`);

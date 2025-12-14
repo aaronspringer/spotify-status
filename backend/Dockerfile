@@ -7,6 +7,6 @@ RUN npm install
 COPY server.js ./
 COPY public/ ./public
 
-EXPOSE 8888
+EXPOSE 8802
 
 CMD ["node", "server.js"]
