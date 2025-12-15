@@ -314,6 +314,60 @@ app.get("/errors/usernotfound", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "errors", "usernotfound.html"));
 });
 
+app.get('/api/users', (req, res) => {
+  try {
+    const users = db.prepare('SELECT username, display_name FROM users').all();
+    res.json(users);
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    res.status(500).json({ error: 'Failed to fetch users' });
+  }
+});
+
+app.get("/api/spotify/search", async (req, res) => {
+  const sessionId = req.cookies.sessionId;
+  if (!sessionId) return res.status(401).json({ error: "Not logged in" });
+
+  const session = db
+    .prepare(`SELECT users.* FROM sessions
+              JOIN users ON users.id = sessions.user_id
+              WHERE sessions.id = ?`)
+    .get(sessionId);
+
+  if (!session) return res.status(401).json({ error: "Invalid session" });
+
+  const accessToken = await ensureFreshAccessTokenForUser(session);
+  const q = req.query.q;
+
+  try {
+    const spotifyRes = await axios.get(
+      "https://api.spotify.com/v1/search",
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+        params: {
+          q,
+          type: "track",
+          limit: 10,
+        },
+      }
+    );
+
+    const tracks = spotifyRes.data.tracks.items.map(t => ({
+      id: t.id,
+      name: t.name,
+      artist: t.artists.map(a => a.name).join(", "),
+      albumArt: t.album.images[0]?.url,
+      trackUrl: t.external_urls.spotify,
+    }));
+
+    res.json({ tracks });
+  } catch (err) {
+    console.error("Spotify search error:", err.response?.data || err);
+    res.status(500).json({ error: "Spotify search failed" });
+  }
+});
+
+
 // Start server
 const PORT = process.env.PORT || 8802;
 app.listen(PORT, () => {

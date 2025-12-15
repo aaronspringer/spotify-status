@@ -48,10 +48,10 @@ code {
   border-radius: 4px;
 }
 
-#view-mode {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 8px;
+#backHome {
+  position: absolute;
+  top: 16px;
+  right: 16px;
 }
 
 #trackDisplay {
@@ -152,4 +152,145 @@ a {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+#songSuggestions {
+  margin-top: 32px;
+  padding: 16px;
+  border: 1px solid var(--spotify-green);
+  border-radius: 8px;
+  background-color: #181818;
+}
+
+#songSuggestions h2,
+#songSuggestions h3 {
+  color: var(--spotify-green);
+  margin-bottom: 12px;
+}
+
+#songSuggestions .autocomplete {
+  margin-bottom: 16px;
+}
+
+#searchQuery {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  background: #121212;
+  color: #fff;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+#searchQuery::placeholder {
+  color: #9a9a9a;
+}
+
+#searchQuery:focus {
+  border-color: var(--spotify-green);
+}
+
+#searchResults {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #181818;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+#searchResults li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  color: #eaeaea;
+  font-size: 14px;
+  transition: background 0.12s ease;
+}
+
+#searchResults li:hover,
+#searchResults li.active {
+  background: #242424;
+}
+
+#searchResults img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+#suggestionsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#suggestionsList li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  background: #121212;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+#suggestionsList li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+#suggestionsList img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.suggestion-track {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.suggestion-track .title {
+  font-weight: 500;
+  color: var(--spotify-white);
+}
+
+.suggestion-track .artist {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.delete-btn {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: #ff4c4c;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+.delete-btn:hover {
+  transform: scale(1.2);
 }

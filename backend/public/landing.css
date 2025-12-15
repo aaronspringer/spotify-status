@@ -1,6 +1,61 @@
+:root {
+  --spotify-green: #1ed760;
+  --spotify-black: #121212;
+  --spotify-white: #FFFFFF;
+}
+
 body {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: relative;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+
+#user-list-container {
+  color: var(--spotify-green);
+  position: relative;
+  margin-top: 20px;
+  width: 90%;
+  max-width: 600px;
+  border: 2px solid var(--spotify-green);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#user-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#user-list li {
+  margin: 8px 0;
+}
+
+#user-list li a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 2px solid var(--spotify-green);
+  color: var(--spotify-white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.1s ease;
+}
+
+#user-list li a:hover {
+  background-color: var(--spotify-green);
+  color: var(--spotify-black);
+  transform: translateY(-1px);
+}
+
+#user-list li a:active {
+  transform: translateY(0);
 }

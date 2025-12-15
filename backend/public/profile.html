@@ -1,42 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <title>Spotify Now Playing – Profile</title>
     <link rel="stylesheet" href="/styles.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <h1 id="title">Spotify Now Playing</h1>
 
-    <div id="trackDisplay">
+    <main>
+      <div>
+        <button id="backHome" onclick="location.href='/'">Back to Home</button>
+      </div>
+      <div id="trackDisplay">
         <div id="trackCover"></div>
 
         <div class="track-info">
-            <p>Track:</p>
-            <div><strong id="trackName"></strong></div>
-            <hr>
-            <p>Artist(s):</p>
-            <div id="trackArtists"></div>
-            <hr>
-            <p>Album:</p>
-            <div><em id="trackAlbum"></em></div>
-            <div>
-                <button id="refresh">Refresh Now Playing</button>
-            </div>
+          <p>Track:</p>
+          <div><strong id="trackName"></strong></div>
+          <hr />
+          <p>Artist(s):</p>
+          <div id="trackArtists"></div>
+          <hr />
+          <p>Album:</p>
+          <div><em id="trackAlbum"></em></div>
+          <div>
+            <button id="refresh">Refresh Now Playing</button>
+          </div>
         </div>
+      </div>
 
-    </div>
+      <div id="songSuggestions">
+        <h2>Song Suggestions</h2>
+        <div class="autocomplete">
+          <input
+            id="searchQuery"
+            placeholder="Search Spotify tracks..."
+            autocomplete="off"
+          />
+          <ul id="searchResults"></ul>
+        </div>
+        <h3>Suggestions:</h3>
+        <ul id="suggestionsList" class="suggestion-list"></ul>
+      </div>
+    </main>
 
     <footer>
-        <p id="instructions">
-            Anyone with this link can see what this user is currently listening to
-            (while their Spotify is active).
-        </p>
+      <p id="instructions">
+        Anyone with this link can see what this user is currently listening to
+        (while their Spotify is active).
+      </p>
     </footer>
 
     <script src="/profile.js"></script>
-</body>
-
+  </body>
 </html>
