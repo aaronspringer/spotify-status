@@ -156,10 +156,18 @@ async function fetchSuggestions() {
     suggestions.forEach((s) => {
       const li = document.createElement("li");
 
+      const titleHtml = s.trackUrl 
+        ? `<a href="${s.trackUrl}" target="_blank" rel="noopener noreferrer" class="suggestion-link"><strong>${s.songTitle}</strong></a>` 
+        : `<strong>${s.songTitle}</strong>`;
+
+      const imgHtml = s.trackUrl
+        ? `<a href="${s.trackUrl}" target="_blank" rel="noopener noreferrer" class="suggestion-thumb-link"><img src="${s.albumArt}" alt="Album Art"></a>`
+        : `<img src="${s.albumArt}" alt="Album Art">`;
+
       li.innerHTML = `
-        <img src="${s.albumArt}">
+        ${imgHtml}
         <div class="suggestion-track">
-          <strong>${s.songTitle}</strong><br>
+          ${titleHtml}
           <small>${s.artist}</small>
         </div>
         <button class="delete-btn" data-trackid="${s.trackId}">❌</button>

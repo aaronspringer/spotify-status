@@ -6,13 +6,26 @@
 
 body {
   position: relative;
-  margin: 0;
-  padding: 0;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#instructions {
+  max-width: 600px;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 24px;
 }
 
 #user-list-container {
@@ -24,6 +37,7 @@ body {
   border: 2px solid var(--spotify-green);
   border-radius: 5px;
   padding: 10px;
+  box-sizing: border-box; 
 }
 
 #user-list {

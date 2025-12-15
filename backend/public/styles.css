@@ -7,18 +7,28 @@
 
 body {
   font-family: system-ui, "Segoe UI", sans-serif;
-  max-width: min(90%,1500px);
-  margin: 40px auto;
-  padding: 0 16px;
+  max-width: min(90%, 1500px);
+  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  margin: 0 auto; 
+  padding: 40px 16px;
+  
   background-color: var(--spotify-black);
 }
 
+main {
+  flex: 1;
+  width: 100%;
+}
+
 footer {
-  position: absolute;
-  bottom: 1vh;
-  max-width: 90%;
-  left: 50%;
-  transform: translateX(-50%);
+  text-align: center;
+  margin-top: 40px;
+  width: 100%;
 }
 
 h1 {
@@ -49,6 +59,9 @@ code {
 }
 
 #backHome {
+  font-size: 2cqw;
+  width: 20%;
+  height: auto;
   position: absolute;
   top: 16px;
   right: 16px;
@@ -170,6 +183,7 @@ a {
 
 #songSuggestions .autocomplete {
   margin-bottom: 16px;
+  position: relative;
 }
 
 #searchQuery {
@@ -182,6 +196,7 @@ a {
   border-radius: 8px;
   outline: none;
   transition: border-color 0.2s ease;
+  box-sizing: border-box;
 }
 
 #searchQuery::placeholder {
@@ -207,6 +222,10 @@ a {
   overflow-y: auto;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+#searchResults:empty {
+  display: none;
 }
 
 #searchResults li {
@@ -258,27 +277,37 @@ a {
 }
 
 #suggestionsList img {
-  width: 50px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   object-fit: cover;
   border-radius: 6px;
+  flex-shrink: 0; 
+  display: block;
+}
+
+.suggestion-thumb-link {
+  display: block;
   flex-shrink: 0;
 }
 
 .suggestion-track {
   display: flex;
   flex-direction: column;
-  line-height: 1.2;
+  line-height: 1.4;
+  justify-content: center;
 }
 
-.suggestion-track .title {
+.suggestion-track strong {
   font-weight: 500;
+  font-size: 16px;
   color: var(--spotify-white);
+  display: block;
 }
 
-.suggestion-track .artist {
+.suggestion-track small {
   font-size: 14px;
   color: #b3b3b3;
+  display: block;
 }
 
 .delete-btn {
@@ -294,3 +323,18 @@ a {
 .delete-btn:hover {
   transform: scale(1.2);
 }
+
+.suggestion-link {
+  text-decoration: none;
+  color: var(--spotify-white);
+  transition: color 0.2s ease;
+}
+
+.suggestion-link:hover {
+  text-decoration: underline;
+}
+
+.suggestion-link:hover strong {
+  color: var(--spotify-green); /* Visual feedback on hover */
+}
+
