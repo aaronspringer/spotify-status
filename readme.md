@@ -2,17 +2,23 @@
 
 ## Running the Project
 
-This project uses node packages for the backend, and I have provided a simple docker-compose file to get everything up and running very quick.
+To sign up, head to https://spotify.aaronspringer.net/. From there, you can sign up, and start submitting suggestions.
 
-In a terminal with docker installed, open the top level directory of this project that the output of `ls` looks something like this:
+## Testing
 
-```backend  docker-compose.yml  readme.md  spotify-wireframe.png```
+Clone the repository and correct the [.env](.env) file to your own spotify credentials. 
 
-Then run
+### Automated Backend Only Tests
 
-```docker compose up --build```
+Enter `backend/`, and run `npm install`, then `npm test`.
 
-This will install all the required node packages and provide the link `https://localhost:8888` to open the website in your browser.
+### Running Locally
+
+Profile song suggestions will not work in local environments. Amazon CORS is set to https://spotify.aaronspringer.net/. In order to test everything else, make sure to change [.env](.env), and run `docker compose up --build` in the root directory of the project.
+
+## Lighthouse Scores
+
+All 3 pages, and any version of the profile page generated for a user, get a 100% accessibility score from chrome's built in Lighthouse Accessibility test.
 
 ## Spotify Status Project Spec
 
