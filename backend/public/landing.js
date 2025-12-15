@@ -1,8 +1,13 @@
 const loginBtn = document.getElementById("login");
 const statusEl = document.getElementById("status");
+const refreshBtn = document.getElementById("refreshUsers");
 
 loginBtn.onclick = () => {
   window.location.href = "/login";
+};
+
+refreshBtn.onclick = () => {
+  fetchUsers();
 };
 
 async function fetchUsers() {

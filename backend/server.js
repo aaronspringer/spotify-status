@@ -370,9 +370,11 @@ app.get("/api/spotify/search", async (req, res) => {
 
 // Start server
 const PORT = process.env.PORT || 8802;
-app.listen(PORT, () => {
-  console.log(`Backend + frontend listening on http://localhost:${PORT}`);
-  console.log(`Login URL:     http://localhost:${PORT}/login`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Backend + frontend listening on http://localhost:${PORT}`);
+    console.log(`Login URL:     http://localhost:${PORT}/login`);
+  });
+}
 
-export default db;
+export { app, db };
